@@ -20,13 +20,13 @@
 
 <body>
     <!-- Container Start -->
-    <div class="container"> 
+    <div class="container">
         <h1 class="text-center">AJAX CRUD SYSTEM</h1>
 
         <div class="d-flex justify-content-end">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Add New User
+                Add New User
             </button>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -37,20 +37,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">First Name: </label>
-                            <input type="text" name="" id="firstname" class="form-control" placeholder="First Name">
 
-                            <label class="pt-2" for="Last Name">Last Name: </label>
-                            <input type="text" name="" id="lastname" class="form-control" placeholder="Last Name">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">First Name: </label>
+                                <input type="text" name="" id="firstname" class="form-control" placeholder="First Name">
 
-                            <label class="pt-2" for="Email">Email: </label>
-                            <input type="email" name="" id="email" class="form-control" placeholder="Email">
+                                <label class="pt-2" for="Last Name">Last Name: </label>
+                                <input type="text" name="" id="lastname" class="form-control" placeholder="Last Name">
 
-                            <label class="pt-2" for="Email">Mobile: </label>
-                            <input type="text" name="" id="phone" class="form-control" placeholder="Phone">
-                        </div>
+                                <label class="pt-2" for="Email">Email: </label>
+                                <input type="email" name="" id="email" class="form-control" placeholder="Email">
+
+                                <label class="pt-2" for="Email">Mobile: </label>
+                                <input type="text" name="" id="phone" class="form-control" placeholder="Phone">
+                            </div>
 
                         </div>
                         <div class="modal-footer">
@@ -70,7 +70,7 @@
 
 
 
-    <!-- Container End -->
+        <!-- Container End -->
     </div>
 
 
@@ -84,14 +84,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
-        function addRecords(){
+        function addRecords() {
             var firstname = $('#firstname').val();
             var lastname = $('#lastname').val();
             var email = $('#email').val();
             var mobile = $('#mobile').val();
 
             $.ajax({
-               url : "" 
+                url: "backend1.php",
+                type: 'post',
+                data: {
+                    firstname : firstname,
+                    lastname  : lastname,
+                    email     : email,
+                    mobile    : mobile
+                },
+
+                success:function(data, status){
+                    readRecords();
+                }
             });
         }
     </script>
